@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<examBlocks>
+    <examBlock>
+        <id>1</id>
+        <blockCode>A</blockCode>
+        <blockName>Khối A</blockName>
+        <subjects>TOAN</subjects>
+        <subjects>LY</subjects>
+        <subjects>HOA</subjects>
+        <description>Khối tự nhiên gồm Toán, Lý, Hóa</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>2</id>
+        <blockCode>B</blockCode>
+        <blockName>Khối B</blockName>
+        <subjects>TOAN</subjects>
+        <subjects>HOA</subjects>
+        <subjects>SINH</subjects>
+        <description>Khối gồm Toán, Hóa, Sinh</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>3</id>
+        <blockCode>C</blockCode>
+        <blockName>Khối C</blockName>
+        <subjects>VAN</subjects>
+        <subjects>SU</subjects>
+        <subjects>DIA</subjects>
+        <description>Khối xã hội gồm Văn, Sử, Địa</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>4</id>
+        <blockCode>D</blockCode>
+        <blockName>Khối D</blockName>
+        <subjects>TOAN</subjects>
+        <subjects>VAN</subjects>
+        <subjects>TA</subjects>
+        <description>Khối gồm Toán, Văn, Tiếng Anh</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>5</id>
+        <blockCode>KB005</blockCode>
+        <blockName>ádasd</blockName>
+        <subjects>Toán</subjects>
+        <subjects>Sinh Học</subjects>
+        <subjects>Hóa Học</subjects>
+        <description>sdas</description>
+        <isActive>true</isActive>
+    </examBlock>
+</examBlocks>

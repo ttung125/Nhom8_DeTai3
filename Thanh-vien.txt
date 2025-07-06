@@ -1,0 +1,92 @@
+================================================================================
+                      PHÂN CHIA CÔNG VIỆC NHÓM 8 - ĐỀ TÀI 3
+                	PHẦN MỀM QUẢN LÝ ĐIỂM THI ĐẠI HỌC
+================================================================================
+
+1. THÔNG TIN NHÓM:
+   - Tên đề tài: Hệ thống quản lý điểm thi đại học
+   - THÔNG TIN THÀNH VIÊN:
+
+   +----------------------+------------------+
+   |        HỌ TÊN        |       MSSV       |
+   +----------------------+------------------+
+   | Đỗ Thanh Tùng        | 	23010044     |
+   | Phạm Ngọc Đức        | 	23010009     |
+   | Nguyễn Hoàng Đức     | 	23010054     |
+   +----------------------+------------------+
+2. DANH SÁCH THÀNH VIÊN VÀ PHÂN CÔNG:
+
+--------------------------------------------------------------------------------
+👑 TRƯỞNG NHÓM: ĐỖ THANH TÙNG
+--------------------------------------------------------------------------------
+Vai trò: Team Leader & Backend Developer
+
+🔹 TRÁCH NHIỆM CHÍNH:
+   • Thiết kế kiến trúc tổng thể hệ thống
+   • Phát triển CHỨC NĂNG 1: QUẢN LÝ THÍ SINH
+     - Entity: Student.java, StudentXML.java
+     - Manager: ManagerStudent.java
+     - View: StudentViewSimple.java  
+     - Controller: StudentController.java
+     - Chức năng: CRUD, tìm kiếm, thống kê thí sinh
+
+   • Phát triển CHỨC NĂNG 2: QUẢN LÝ ĐIỂM THI
+     - Entity: ExamScore.java, ExamScoreXML.java
+     - Manager: ManagerExamScore.java
+     - View: ScoreViewSimple.java
+     - Controller: ScoreController.java
+     - Chức năng: Nhập điểm, tra cứu, thống kê điểm
+
+🔹 TRÁCH NHIỆM PHỤ:
+   • Tích hợp toàn bộ hệ thống
+   • Thiết kế giao diện chính (MainView, LoginView)
+   • Hỗ trợ debug và fix lỗi cho các thành viên
+   • Kiểm thử tổng thể và đảm bảo chất lượng
+   • Viết tài liệu hướng dẫn sử dụng (README.md)
+   • Đóng gói phần mềm (JAR/EXE)
+
+🔹 THỜI GIAN THỰC HIỆN: 100% (40% công việc chính + 60% hỗ trợ tích hợp)
+
+--------------------------------------------------------------------------------
+👤 THÀNH VIÊN 2: PHẠM NGỌC ĐỨC
+--------------------------------------------------------------------------------
+Vai trò: Frontend Developer
+
+🔹 TRÁCH NHIỆM CHÍNH:
+   • Phát triển CHỨC NĂNG 3: QUẢN LÝ MÔN THI
+     - Entity: Subject.java, SubjectXML.java
+     - Manager: ManagerSubject.java
+     - View: SubjectViewSimple.java
+     - Controller: SubjectController.java
+     - Chức năng: CRUD môn thi, tìm kiếm theo tên/thời gian
+
+🔹 TRÁCH NHIỆM PHỤ:
+   • Thiết kế giao diện người dùng (UI/UX)
+   • Tạo các component giao diện tái sử dụng
+   • Xử lý validation input từ người dùng
+   • Test giao diện và trải nghiệm người dùng
+   • Chuẩn bị dữ liệu test cho môn thi
+
+🔹 THỜI GIAN THỰC HIỆN: 30% tổng dự án
+
+--------------------------------------------------------------------------------
+👤 THÀNH VIÊN 3: NGUYỄN HOÀNG ĐỨC
+--------------------------------------------------------------------------------
+Vai trò: Data Management Developer
+
+🔹 TRÁCH NHIỆM CHÍNH:
+   • Phát triển CHỨC NĂNG 4: QUẢN LÝ KHỐI THI
+     - Entity: ExamBlock.java, ExamBlockXML.java
+     - Manager: ManagerExamBlock.java
+     - View: ExamBlockViewSimple.java
+     - Controller: ExamBlockController.java
+     - Chức năng: CRUD khối thi, quản lý môn thi trong khối
+
+🔹 TRÁCH NHIỆM PHỤ:
+   • Thiết kế cơ sở dữ liệu XML
+   • Tạo dữ liệu mẫu cho tất cả module (data/*.xml)
+   • Xử lý import/export dữ liệu
+   • Backup và restore dữ liệu
+   • Test tính năng lưu trữ và khôi phục
+
+🔹 THỜI GIAN THỰC HIỆN: 30% tổng dự án

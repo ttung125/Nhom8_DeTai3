@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<examScores>
+    <examScore>
+        <id>1</id>
+        <studentCode>1</studentCode>
+        <subjectCode>Toán</subjectCode>
+        <score>9.0</score>
+        <examDate>2025-07-10T17:31:05.842+07:00</examDate>
+        <examSession>Chiều</examSession>
+        <examRoom>123</examRoom>
+        <status>Có mặt</status>
+    </examScore>
+</examScores>

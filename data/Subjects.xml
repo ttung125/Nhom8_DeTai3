@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<subjects>
+    <subject>
+        <id>1</id>
+        <subjectCode>TOAN</subjectCode>
+        <subjectName>Toán học</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Toán trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>2</id>
+        <subjectCode>LY</subjectCode>
+        <subjectName>Vật lý</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Vật lý trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>3</id>
+        <subjectCode>HOA</subjectCode>
+        <subjectName>Hóa học</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Hóa học trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>4</id>
+        <subjectCode>SINH</subjectCode>
+        <subjectName>Sinh học</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Sinh học trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>5</id>
+        <subjectCode>VAN</subjectCode>
+        <subjectName>Ngữ văn</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Ngữ văn trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>6</id>
+        <subjectCode>SU</subjectCode>
+        <subjectName>Lịch sử</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Lịch sử trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>11</id>
+        <subjectCode>DIA</subjectCode>
+        <subjectName>Địa lý</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Địa lý trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>8</id>
+        <subjectCode>GDCD</subjectCode>
+        <subjectName>Giáo dục công dân</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn GDCD trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>9</id>
+        <subjectCode>TA</subjectCode>
+        <subjectName>Tiếng Anh</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Môn Tiếng Anh trong kỳ thi THPT</description>
+    </subject>
+    <subject>
+        <id>13</id>
+        <subjectCode>MH010</subjectCode>
+        <subjectName>Tiếng Pháp</subjectName>
+        <duration>60</duration>
+        <maxScore>10.0</maxScore>
+        <description></description>
+    </subject>
+</subjects>

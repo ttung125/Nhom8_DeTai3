@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Students>
+    <Student>
+        <id>6</id>
+        <fullName>Lê Văn Cường</fullName>
+        <birthDate>2005-11-08T00:00:00+07:00</birthDate>
+        <gender>Nam</gender>
+        <examBlock>Khối C</examBlock>
+        <address>789 Đường DEF, Quận 3, TP.HCM</address>
+        <phoneNumber>0923456789</phoneNumber>
+        <email>levancuong@email.com</email>
+    </Student>
+    <Student>
+        <id>4</id>
+        <fullName>Nguyễn Văn An</fullName>
+        <birthDate>2005-03-15T00:00:00+07:00</birthDate>
+        <gender>Nam</gender>
+        <examBlock>Khối A</examBlock>
+        <address>123 Đường ABC, Quận 1, TP.HCM</address>
+        <phoneNumber>0901234567</phoneNumber>
+        <email>nguyenvanan@email.com</email>
+    </Student>
+    <Student>
+        <id>5</id>
+        <fullName>Trần Thị Bình</fullName>
+        <birthDate>2005-07-22T00:00:00+07:00</birthDate>
+        <gender>Nữ</gender>
+        <examBlock>Khối B</examBlock>
+        <address>456 Đường XYZ, Quận 2, TP.HCM</address>
+        <phoneNumber>0912345678</phoneNumber>
+        <email>tranthibinh@email.com</email>
+    </Student>
+</Students>
