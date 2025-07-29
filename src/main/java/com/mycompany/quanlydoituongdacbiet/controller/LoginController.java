@@ -1,83 +1,69 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.quanlydoituongdacbiet.controller;
 
 import com.mycompany.quanlydoituongdacbiet.action.CheckLogin;
 import com.mycompany.quanlydoituongdacbiet.entity.User;
 import com.mycompany.quanlydoituongdacbiet.view.LoginView;
 import com.mycompany.quanlydoituongdacbiet.view.MainView;
+import com.mycompany.quanlydoituongdacbiet.view.UserView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 
 /**
- *
- * @author PC
+ * Controller xử lý logic đăng nhập
  */
-public class LoginController 
-{
+public class LoginController {
     private CheckLogin checkLogin;
     private LoginView loginView;
-    private MainView mainView;
-    
-    public LoginController(LoginView view) 
-    {
-        this.loginView = view;
+
+    public LoginController(LoginView loginView) {
+        this.loginView = loginView;
         this.checkLogin = new CheckLogin();
-        view.addLoginListener(new LoginListener());
+
+        // Đăng ký sự kiện cho nút đăng nhập
+        this.loginView.addLoginListener(new LoginListener());
     }
-    
-    public void showLoginView() 
-    {
+
+    public void showLoginView() {
         loginView.setVisible(true);
     }
-    
+
     /**
-     * Lớp LoginListener 
-     * chứa cài đặt cho sự kiện click button "Login"
-     * 
-     * @author viettuts.vn
+     * Lớp xử lý sự kiện đăng nhập
      */
-    class LoginListener implements ActionListener 
-    {
-        public void actionPerformed(ActionEvent e) 
-        {
+    class LoginListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             System.out.println("🔍 Bắt đầu xử lý đăng nhập...");
-            
-            User user = loginView.getUser();
-            System.out.println("📝 User nhập: " + user.getUserName() + " / " + user.getPassword());
-            
-            if (checkLogin.checkUser(user)) 
-            {
-                // nếu đăng nhập thành công, mở màn hình chính quản lý điểm thi đại học
-                System.out.println("🎉 Đăng nhập thành công! Chuyển đến MainView...");
-                
-                try {
-                    mainView = new MainView();
-                    System.out.println("✅ Đã tạo MainView thành công!");
-                    
-                    MainController mainController = new MainController(mainView);
-                    System.out.println("✅ Đã tạo MainController thành công!");
-                    
-                    mainController.showMainView();
-                    System.out.println("✅ Đã gọi showMainView() thành công!");
-                    
-                    loginView.setVisible(false);
-                    System.out.println("✅ Đã ẩn LoginView thành công!");
-                    
-                    System.out.println("🚀 Hoàn thành chuyển đổi sang MainView!");
-                    
-                } catch (Exception ex) {
-                    System.err.println("❌ Lỗi khi chuyển đến MainView: " + ex.getMessage());
-                    ex.printStackTrace();
+
+            User inputUser = loginView.getUser();
+            System.out.println("📝 Thông tin nhập: " + inputUser.getUserName() + " / " + inputUser.getPassword());
+
+            User authenticatedUser = checkLogin.checkUser(inputUser); // Trả về User nếu đúng
+            if (authenticatedUser != null) {
+                if (authenticatedUser.isAdmin()) {
+                    System.out.println("🎉 Đăng nhập thành công (admin) → Chuyển đến MainView...");
+                    try {
+                        MainView mainView = new MainView();
+                        MainController mainController = new MainController(mainView);
+                        mainController.showMainView();
+                        loginView.setVisible(false);
+                    } catch (Exception ex) {
+                        System.err.println("❌ Lỗi khi mở MainView: " + ex.getMessage());
+                        ex.printStackTrace();
+                    }
+                } else if (authenticatedUser.isUser()) {
+                    System.out.println("🎉 Đăng nhập thành công (user) → Chuyển đến UserView...");
+                    try {
+                        UserView userView = new UserView(authenticatedUser);
+                        userView.setVisible(true);
+                        loginView.setVisible(false);
+                    } catch (Exception ex) {
+                        System.err.println("❌ Lỗi khi mở UserView: " + ex.getMessage());
+                        ex.printStackTrace();
+                    }
+                } else {
+                    loginView.showMessage("❌ Không xác định được vai trò người dùng.");
                 }
-            } 
-            else 
-            {
+            } else {
                 System.out.println("❌ Đăng nhập thất bại!");
                 loginView.showMessage("Tên đăng nhập hoặc mật khẩu không đúng.");
             }

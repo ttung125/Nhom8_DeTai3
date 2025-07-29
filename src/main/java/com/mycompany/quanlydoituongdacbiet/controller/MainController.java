@@ -37,6 +37,8 @@ public class MainController
         view.addChooseStudentListener(new ChooseStudentListener());
         view.addChooseSubjectsListener(new ChooseSubjectsListener());
         view.addChooseExamBlocksListener(new ChooseExamBlocksListener());
+        view.addLogoutListener(new LogoutListener());
+
         
         // Giữ lại để tương thích ngược với hệ thống cũ
         view.addChooseSpecialPersonListener(new ChooseSpecialPersonListener());
@@ -195,4 +197,17 @@ public class MainController
         mainView.setVisible(false);
         System.out.println("✅ Đã mở ScoreView!");
     }
+
+
+    class LogoutListener implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("🔒 Đăng xuất khỏi hệ thống...");
+        LoginView loginView = new LoginView();
+        LoginController loginController = new LoginController(loginView);
+        loginController.showLoginView();
+        mainView.setVisible(false);
+        System.out.println("✅ Quay về màn hình đăng nhập!");
+    }
+}
+
 }

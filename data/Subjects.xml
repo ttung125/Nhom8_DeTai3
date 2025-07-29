@@ -73,11 +73,19 @@
         <description>Môn Tiếng Anh trong kỳ thi THPT</description>
     </subject>
     <subject>
-        <id>13</id>
+        <id>11</id>
         <subjectCode>MH010</subjectCode>
-        <subjectName>Tiếng Pháp</subjectName>
-        <duration>60</duration>
+        <subjectName>Tiếng Trung</subjectName>
+        <duration>180</duration>
         <maxScore>10.0</maxScore>
-        <description></description>
+        <description>Thi hskdfdfdf</description>
+    </subject>
+    <subject>
+        <id>21</id>
+        <subjectCode>MH011</subjectCode>
+        <subjectName>Tin học</subjectName>
+        <duration>180</duration>
+        <maxScore>10.0</maxScore>
+        <description>Thi code trên giấy</description>
     </subject>
 </subjects>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <examBlocks>
     <examBlock>
+        <id>30</id>
+        <blockCode>KB006</blockCode>
+        <blockName>Khôi E</blockName>
+        <subjects>Sinh Học</subjects>
+        <subjects>Tiếng Anh</subjects>
+        <subjects>Ngữ Văn</subjects>
+        <description>Khối tự do</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
         <id>1</id>
         <blockCode>A</blockCode>
         <blockName>Khối A</blockName>
@@ -41,13 +51,33 @@
         <isActive>true</isActive>
     </examBlock>
     <examBlock>
-        <id>5</id>
+        <id>8</id>
         <blockCode>KB005</blockCode>
-        <blockName>ádasd</blockName>
+        <blockName>Khối S</blockName>
         <subjects>Toán</subjects>
         <subjects>Sinh Học</subjects>
         <subjects>Hóa Học</subjects>
         <description>sdas</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>7</id>
+        <blockCode>KB007</blockCode>
+        <blockName>Khối M</blockName>
+        <subjects>Tiếng Trung</subjects>
+        <subjects>GDCD</subjects>
+        <subjects>Địa Lý</subjects>
+        <description>no name</description>
+        <isActive>true</isActive>
+    </examBlock>
+    <examBlock>
+        <id>31</id>
+        <blockCode>KB008</blockCode>
+        <blockName>test</blockName>
+        <subjects>Hóa học</subjects>
+        <subjects>Ngữ văn</subjects>
+        <subjects>Lịch sử</subjects>
+        <description></description>
         <isActive>true</isActive>
     </examBlock>
 </examBlocks>

@@ -159,18 +159,7 @@ public class ManagerExamScore {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Tìm kiếm điểm thi theo phòng thi
-     * 
-     * @param examRoom phòng thi
-     * @return danh sách điểm thi trong phòng
-     */
-    public List<ExamScore> findByExamRoom(String examRoom) {
-        return listExamScores.stream()
-                .filter(e -> e.getExamRoom().toLowerCase().contains(examRoom.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
+ 
     /**
      * Sắp xếp danh sách điểm thi theo điểm số
      * 

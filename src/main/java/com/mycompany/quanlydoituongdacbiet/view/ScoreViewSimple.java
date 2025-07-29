@@ -5,6 +5,7 @@
 package com.mycompany.quanlydoituongdacbiet.view;
 
 import com.mycompany.quanlydoituongdacbiet.entity.ExamScore;
+import com.mycompany.quanlydoituongdacbiet.entity.Student;
 import com.toedter.calendar.JDateChooser;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -23,11 +24,11 @@ import javax.swing.table.DefaultTableModel;
 public class ScoreViewSimple extends JFrame {
     
     private JTextField txtStudentId;
+    private JTextField txtFullName;
+    private JComboBox<String> cmbExamBlock;
     private JComboBox<String> cmbSubjectCode;
     private JTextField txtScore;
     private JDateChooser dateChooser;
-    private JComboBox<String> cmbExamSession;
-    private JTextField txtExamRoom;
     private JComboBox<String> cmbStatus;
     private JTextField txtSearchStudentId;
     private JTextField txtSearchSubject;
@@ -51,9 +52,9 @@ public class ScoreViewSimple extends JFrame {
     private JLabel lblFailed;
     private JLabel lblAverage;
     
-    private SimpleDateFormat dateFormat;
-    private DecimalFormat decimalFormat;
-    
+    private final SimpleDateFormat dateFormat;
+    private final DecimalFormat decimalFormat;
+
     public ScoreViewSimple() {
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         decimalFormat = new DecimalFormat("#,##0.00");
@@ -62,14 +63,14 @@ public class ScoreViewSimple extends JFrame {
     }
     
     private void initComponents() {
-        setTitle("Quản lý điểm thi");
+        setTitle("QUẢN LÝ ĐIỂM THI");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 800);
         setLayout(new BorderLayout());
         
         // Set background
         JLabel background = new JLabel();
-        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/Lovepik_com-500330964-blue-blazed-background.jpg"));
+        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/background.jpg"));
         background.setLayout(new BorderLayout());
         
         // Main panel with transparent background
@@ -133,42 +134,42 @@ public class ScoreViewSimple extends JFrame {
         txtStudentId = new JTextField(15);
         panel.add(txtStudentId, gbc);
         
-        // Row 1: Subject
+        // Row 1: Full Name
         gbc.gridx = 0; gbc.gridy = 1;
-        panel.add(createLabel("Môn thi:"), gbc);
+        panel.add(createLabel("Họ và tên:"), gbc);
+        gbc.gridx = 1;
+        txtFullName = new JTextField(15);
+        panel.add(txtFullName, gbc);
+        
+        // Row 2: Exam Block
+        gbc.gridx = 0; gbc.gridy = 2;
+        panel.add(createLabel("Khối thi:"), gbc);
+        gbc.gridx = 1;
+        cmbExamBlock = new JComboBox<>(Student.getExamBlockOptions());
+        panel.add(cmbExamBlock, gbc);
+        
+        // Row 3: Subject
+        gbc.gridx = 0; gbc.gridy = 3;
+        panel.add(createLabel("Môn Thi:"), gbc);
         gbc.gridx = 1;
         cmbSubjectCode = new JComboBox<>(ExamScore.getSubjectOptions());
         panel.add(cmbSubjectCode, gbc);
         
-        // Row 2: Score
-        gbc.gridx = 0; gbc.gridy = 2;
+        // Row 4: Score
+        gbc.gridx = 0; gbc.gridy = 4;
         panel.add(createLabel("Điểm số:"), gbc);
         gbc.gridx = 1;
         txtScore = new JTextField(15);
         panel.add(txtScore, gbc);
         
-        // Row 3: Exam Date
-        gbc.gridx = 0; gbc.gridy = 3;
+        // Row 5: Exam Date
+        gbc.gridx = 0; gbc.gridy = 5;
         panel.add(createLabel("Ngày thi:"), gbc);
         gbc.gridx = 1;
         dateChooser = new JDateChooser();
         dateChooser.setPreferredSize(new Dimension(150, 25));
         dateChooser.setDateFormatString("dd/MM/yyyy");
         panel.add(dateChooser, gbc);
-        
-        // Row 4: Exam Session
-        gbc.gridx = 0; gbc.gridy = 4;
-        panel.add(createLabel("Ca thi:"), gbc);
-        gbc.gridx = 1;
-        cmbExamSession = new JComboBox<>(ExamScore.getExamSessionOptions());
-        panel.add(cmbExamSession, gbc);
-        
-        // Row 5: Exam Room
-        gbc.gridx = 0; gbc.gridy = 5;
-        panel.add(createLabel("Phòng thi:"), gbc);
-        gbc.gridx = 1;
-        txtExamRoom = new JTextField(15);
-        panel.add(txtExamRoom, gbc);
         
         // Row 6: Status
         gbc.gridx = 0; gbc.gridy = 6;
@@ -273,8 +274,7 @@ public class ScoreViewSimple extends JFrame {
             0, 0, new Font("Times New Roman", Font.BOLD, 16), Color.WHITE));
         
         String[] columnNames = {
-            "Mã thí sinh", "Môn thi", "Điểm số", "Ngày thi", 
-            "Ca thi", "Phòng thi", "Trạng thái"
+            "Mã thí sinh","Họ Và Tên","Khối Thi" ,"Môn thi", "Điểm số", "Ngày thi",  "Trạng thái"
         };
         
         tableModel = new DefaultTableModel(columnNames, 0) {
@@ -357,22 +357,26 @@ public class ScoreViewSimple extends JFrame {
         return button;
     }
     
+
+
+
+
+    
     // Getter methods for form data
     public ExamScore getExamScoreInfo() {
         try {
             String studentId = txtStudentId.getText().trim();
+            String fullName = txtFullName.getText().trim();
+            String examBlock = (String) cmbExamBlock.getSelectedItem();
             String subjectCode = (String) cmbSubjectCode.getSelectedItem();
             String scoreText = txtScore.getText().trim();
             Date examDate = dateChooser.getDate();
-            String examSession = (String) cmbExamSession.getSelectedItem();
-            String examRoom = txtExamRoom.getText().trim();
             String status = (String) cmbStatus.getSelectedItem();
             
             if (studentId.isEmpty() || scoreText.isEmpty() || examDate == null) {
                 showMessage("Vui lòng nhập đầy đủ thông tin bắt buộc!");
                 return null;
             }
-            
             double score = Double.parseDouble(scoreText);
             if (score < 0 || score > 10) {
                 showMessage("Điểm số phải từ 0 đến 10!");
@@ -381,11 +385,11 @@ public class ScoreViewSimple extends JFrame {
             
             ExamScore examScore = new ExamScore();
             examScore.setStudentId(studentId);
+            examScore.setFullName(fullName);
+            examScore.setExamBlock(examBlock);
             examScore.setSubjectCode(subjectCode);
             examScore.setScore(score);
             examScore.setExamDate(examDate);
-            examScore.setExamSession(examSession);
-            examScore.setExamRoom(examRoom);
             examScore.setStatus(status);
             
             return examScore;
@@ -398,15 +402,23 @@ public class ScoreViewSimple extends JFrame {
             return null;
         }
     }
-    
+
+    /**
+     *
+     * @param listener
+     */
+    public void addStudentIdFieldListener(java.awt.event.KeyListener listener) {
+    txtStudentId.addKeyListener(listener);
+    }
+
     public void showExamScoreInfo(ExamScore examScore) {
         if (examScore != null) {
             txtStudentId.setText(examScore.getStudentId());
+            txtFullName.setText(examScore.getFullName());
+            cmbExamBlock.setSelectedItem(examScore.getExamBlock());
             cmbSubjectCode.setSelectedItem(examScore.getSubjectCode());
             txtScore.setText(String.valueOf(examScore.getScore()));
             dateChooser.setDate(examScore.getExamDate());
-            cmbExamSession.setSelectedItem(examScore.getExamSession());
-            txtExamRoom.setText(examScore.getExamRoom());
             cmbStatus.setSelectedItem(examScore.getStatus());
         }
     }
@@ -416,11 +428,11 @@ public class ScoreViewSimple extends JFrame {
         for (ExamScore score : examScores) {
             Object[] row = {
                 score.getStudentId(),
+                score.getFullName(),      
+                score.getExamBlock(), 
                 score.getSubjectCode(),
                 decimalFormat.format(score.getScore()),
                 dateFormat.format(score.getExamDate()),
-                score.getExamSession(),
-                score.getExamRoom(),
                 score.getStatus()
             };
             tableModel.addRow(row);
@@ -436,11 +448,11 @@ public class ScoreViewSimple extends JFrame {
     
     public void clearForm() {
         txtStudentId.setText("");
+        txtFullName.setText(""); 
+        cmbExamBlock.setSelectedIndex(0); 
         cmbSubjectCode.setSelectedIndex(0);
         txtScore.setText("");
         dateChooser.setDate(null);
-        cmbExamSession.setSelectedIndex(0);
-        txtExamRoom.setText("");
         cmbStatus.setSelectedIndex(0);
         txtSearchStudentId.setText("");
         txtSearchSubject.setText("");
@@ -487,7 +499,7 @@ public class ScoreViewSimple extends JFrame {
     public String getSelectedSubjectCode() {
         int row = getSelectedRow();
         if (row >= 0) {
-            return (String) tableModel.getValueAt(row, 1);
+            return (String) tableModel.getValueAt(row, 3);
         }
         return null;
     }
@@ -500,6 +512,33 @@ public class ScoreViewSimple extends JFrame {
     public void showScoreView() {
         setVisible(true);
     }
+    
+    public String getStudentId() {
+        return txtStudentId.getText().trim();
+    }
+
+    public void setFullName(String name) {
+        txtFullName.setText(name);
+    }
+
+    public void setExamBlock(String block) {
+        cmbExamBlock.setSelectedItem(block);
+    }
+    
+    public void updateExamBlockOptions(List<String> blocks) {
+        cmbExamBlock.removeAllItems();
+        for (String block : blocks) {
+        cmbExamBlock.addItem(block);
+        }
+    }
+    
+
+    public void updateSubjectOptions(List<String> subjects) {
+        cmbSubjectCode.removeAllItems();
+        for (String subject : subjects) {
+        cmbSubjectCode.addItem(subject);
+        }
+    }      
     
     // Listener methods
     public void addAddExamScoreListener(ActionListener listener) {

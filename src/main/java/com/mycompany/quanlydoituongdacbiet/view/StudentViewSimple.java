@@ -14,6 +14,10 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.quanlydoituongdacbiet.entity.ExamBlock;
+import com.mycompany.quanlydoituongdacbiet.entity.ExamBlockXML;
+import com.mycompany.quanlydoituongdacbiet.util.XMLUtil;
+
 
 /**
  * View đơn giản để quản lý thí sinh
@@ -50,7 +54,7 @@ public class StudentViewSimple extends JFrame {
     private JLabel lblMale;
     private JLabel lblFemale;
     
-    private SimpleDateFormat dateFormat;
+    private final SimpleDateFormat dateFormat;
     
     public StudentViewSimple() {
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -59,14 +63,14 @@ public class StudentViewSimple extends JFrame {
     }
     
     private void initComponents() {
-        setTitle("Quản lý thí sinh");
+        setTitle("QUẢN LÝ THÍ SINH");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 800);
         setLayout(new BorderLayout());
         
         // Set background
         JLabel background = new JLabel();
-        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/Lovepik_com-500330964-blue-blazed-background.jpg"));
+        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/background.jpg"));
         background.setLayout(new BorderLayout());
         
         // Main panel with transparent background
@@ -128,7 +132,7 @@ public class StudentViewSimple extends JFrame {
         panel.add(createLabel("Mã thí sinh:"), gbc);
         gbc.gridx = 1;
         txtStudentId = new JTextField(15);
-        txtStudentId.setEditable(false); // Auto-generate
+        txtStudentId.setEditable(true); // Auto-generate
         panel.add(txtStudentId, gbc);
         
         // Row 1: Full Name
@@ -180,6 +184,7 @@ public class StudentViewSimple extends JFrame {
         panel.add(createLabel("Khối thi:"), gbc);
         gbc.gridx = 1;
         cmbExamBlock = new JComboBox<>(Student.getExamBlockOptions());
+        loadExamBlocksToComboBox();
         panel.add(cmbExamBlock, gbc);
         
         // Buttons
@@ -388,6 +393,7 @@ public class StudentViewSimple extends JFrame {
     
     public void showStudentInfo(Student student) {
         if (student != null) {
+            txtStudentId.setEditable(false); // Không cho sửa khi chọn từ bảng
             txtStudentId.setText(student.getStudentId());
             txtFullName.setText(student.getFullName());
             dateChooser.setDate(student.getBirthDate());
@@ -422,10 +428,19 @@ public class StudentViewSimple extends JFrame {
         lblMale.setText("Nam: " + String.format("%,d", male));
         lblFemale.setText("Nữ: " + String.format("%,d", female));
     }
-    
+    public void loadExamBlocksToComboBox() {
+    cmbExamBlock.removeAllItems();
+    ExamBlockXML data = XMLUtil.readExamBlockFromFile("data/ExamBlocks.xml");
+    if (data != null && data.getExamBlocks() != null) {
+        for (ExamBlock block : data.getExamBlocks()) {
+            cmbExamBlock.addItem(block.getBlockCode()); // hoặc block.getBlockName()
+        }
+    }
+}
     public void clearForm() {
         txtStudentId.setText("");
         txtFullName.setText("");
+        txtStudentId.setEditable(true); // Cho phép nhập khi thêm mới
         dateChooser.setDate(null);
         cmbGender.setSelectedIndex(0);
         txtAddress.setText("");

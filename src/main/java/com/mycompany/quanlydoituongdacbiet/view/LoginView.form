@@ -113,7 +113,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Qu&#x1ea3;n l&#xfd; t&#xec;nh h&#xec;nh d&#xe2;n c&#x1b0;&lt;br&gt; "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Qu&#x1ea3;n l&#xfd; &#x111;i&#x1ec3;m thi &#x111;&#x1ea1;i h&#x1ecd;c&lt;br&gt; "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

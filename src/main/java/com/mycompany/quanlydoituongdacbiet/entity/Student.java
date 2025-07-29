@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import com.mycompany.quanlydoituongdacbiet.entity.Student;
+
 
 /**
  * Class đại diện cho thí sinh trong hệ thống quản lý điểm thi đại học

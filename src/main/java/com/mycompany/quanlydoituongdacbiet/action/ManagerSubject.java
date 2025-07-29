@@ -390,4 +390,12 @@ public class ManagerSubject {
     public List<Subject> sortSubjectsByName() {
         return sortByName();
     }
+
+    public List<String> getSubjectNames() {
+        List<String> names = new ArrayList<>();
+        for (Subject subject : listSubjects) {
+            names.add(subject.getSubjectName()); // Đảm bảo Subject có phương thức getSubjectName()
+        }
+        return names;
+    }
 }

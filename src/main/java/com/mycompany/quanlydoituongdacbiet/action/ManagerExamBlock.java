@@ -238,6 +238,7 @@ public class ManagerExamBlock {
         }
         return -1;
     }
+    
 
     /**
      * Khởi tạo dữ liệu khối thi mặc định
@@ -366,5 +367,13 @@ public class ManagerExamBlock {
     public List<ExamBlock> sortExamBlocksByName() {
         sortByName(true); // Sắp xếp tăng dần
         return new ArrayList<>(listExamBlocks);
+    }
+
+    public List<String> getExamBlockNames() {
+        List<String> names = new ArrayList<>();
+        for (ExamBlock block : listExamBlocks) {
+            names.add(block.getBlockName()); // hoặc getCode() nếu bạn dùng mã khối
+        }
+        return names;
     }
 }

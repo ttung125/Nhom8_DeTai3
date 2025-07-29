@@ -1,13 +1,123 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <examScores>
     <examScore>
-        <id>1</id>
-        <studentCode>1</studentCode>
-        <subjectCode>Toán</subjectCode>
+        <id>3003</id>
+        <studentCode>230122</studentCode>
+        <subjectCode>Địa lý</subjectCode>
         <score>9.0</score>
-        <examDate>2025-07-10T17:31:05.842+07:00</examDate>
-        <examSession>Chiều</examSession>
-        <examRoom>123</examRoom>
+        <examDate>2025-07-12T08:00:00+07:00</examDate>
         <status>Có mặt</status>
+        <fullName>Phạm Văn Mạnh</fullName>
+        <examBlock>Khối C</examBlock>
+    </examScore>
+    <examScore>
+        <id>23</id>
+        <studentCode>230306</studentCode>
+        <subjectCode>Lịch Sử</subjectCode>
+        <score>9.0</score>
+        <examDate>2025-07-23T00:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Đoàn Trâm Anh</fullName>
+        <examBlock>Khối C</examBlock>
+    </examScore>
+    <examScore>
+        <id>1001</id>
+        <studentCode>234375</studentCode>
+        <subjectCode>Toán</subjectCode>
+        <score>8.5</score>
+        <examDate>2025-07-10T08:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Nguyễn Văn An</fullName>
+        <examBlock>Khối A</examBlock>
+    </examScore>
+    <examScore>
+        <id>3002</id>
+        <studentCode>230122</studentCode>
+        <subjectCode>Lịch sử</subjectCode>
+        <score>8.5</score>
+        <examDate>2025-07-11T08:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Phạm Văn Mạnh</fullName>
+        <examBlock>Khối C</examBlock>
+    </examScore>
+    <examScore>
+        <id>1003</id>
+        <studentCode>234375</studentCode>
+        <subjectCode>Hóa học</subjectCode>
+        <score>8.25</score>
+        <examDate>2025-07-12T08:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Nguyễn Văn An</fullName>
+        <examBlock>Khối A</examBlock>
+    </examScore>
+    <examScore>
+        <id>3001</id>
+        <studentCode>230122</studentCode>
+        <subjectCode>Ngữ văn</subjectCode>
+        <score>8.0</score>
+        <examDate>2025-07-10T08:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Phạm Văn Mạnh</fullName>
+        <examBlock>Khối C</examBlock>
+    </examScore>
+    <examScore>
+        <id>43</id>
+        <studentCode>230306</studentCode>
+        <subjectCode>Ngữ Văn</subjectCode>
+        <score>8.0</score>
+        <examDate>2025-07-16T00:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Đoàn Trâm Anh</fullName>
+        <examBlock>Khối C</examBlock>
+    </examScore>
+    <examScore>
+        <id>1002</id>
+        <studentCode>234375</studentCode>
+        <subjectCode>Vật lý</subjectCode>
+        <score>7.75</score>
+        <examDate>2025-07-11T08:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Nguyễn Văn An</fullName>
+        <examBlock>Khối A</examBlock>
+    </examScore>
+    <examScore>
+        <id>2003</id>
+        <studentCode>230101</studentCode>
+        <subjectCode>Sinh học</subjectCode>
+        <score>7.75</score>
+        <examDate>2025-07-12T13:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Lê Văn Quý</fullName>
+        <examBlock>Khối B</examBlock>
+    </examScore>
+    <examScore>
+        <id>2001</id>
+        <studentCode>230101</studentCode>
+        <subjectCode>Toán</subjectCode>
+        <score>7.0</score>
+        <examDate>2025-07-10T13:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Lê Văn Quý</fullName>
+        <examBlock>Khối B</examBlock>
+    </examScore>
+    <examScore>
+        <id>2002</id>
+        <studentCode>230101</studentCode>
+        <subjectCode>Hóa học</subjectCode>
+        <score>6.5</score>
+        <examDate>2025-07-11T13:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Lê Văn Quý</fullName>
+        <examBlock>Khối B</examBlock>
+    </examScore>
+    <examScore>
+        <id>22</id>
+        <studentCode>237473</studentCode>
+        <subjectCode>Toán</subjectCode>
+        <score>5.0</score>
+        <examDate>2025-07-10T00:00:00+07:00</examDate>
+        <status>Có mặt</status>
+        <fullName>Đoàn Đình Hoàng</fullName>
+        <examBlock>Khối A1</examBlock>
     </examScore>
 </examScores>

@@ -48,14 +48,14 @@ public class SubjectViewSimple extends JFrame {
     }
     
     private void initComponents() {
-        setTitle("Quản lý môn thi");
+        setTitle("QUẢN LÝ MÔN THI");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 800);
         setLayout(new BorderLayout());
         
         // Set background
         JLabel background = new JLabel();
-        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/Lovepik_com-500330964-blue-blazed-background.jpg"));
+        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/background.jpg"));
         background.setLayout(new BorderLayout());
         
         // Main panel with transparent background

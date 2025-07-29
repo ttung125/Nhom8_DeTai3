@@ -4,6 +4,7 @@
 package com.mycompany.quanlydoituongdacbiet.view;
 
 import com.mycompany.quanlydoituongdacbiet.entity.ExamBlock;
+import com.mycompany.quanlydoituongdacbiet.util.XMLUtil;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class ExamBlockViewSimple extends JFrame {
     private JTextField txtMinSubjects;
     private JTextField txtMaxSubjects;
     
+    
     private JButton btnAdd;
     private JButton btnEdit;
     private JButton btnDelete;
@@ -41,6 +43,7 @@ public class ExamBlockViewSimple extends JFrame {
     private JButton btnBack;
     private JButton btnAddSubject;
     private JButton btnRemoveSubject;
+
     
     private JTable tableExamBlocks;
     private DefaultTableModel tableModel;
@@ -49,25 +52,38 @@ public class ExamBlockViewSimple extends JFrame {
     private JLabel lblAvgSubjects;
     
     // Available subjects for selection
-    private final String[] ALL_SUBJECTS = {
+    /*private final String[] ALL_SUBJECTS = {
         "Toán", "Vật Lý", "Hóa Học", "Sinh Học", "Ngữ Văn", 
-        "Tiếng Anh", "Lịch Sử", "Địa Lý", "GDCD"
-    };
+        "Tiếng Anh", "Lịch Sử", "Địa Lý", "GDCD","Tiếng Trung"
+    };*/
+    private List<String> allSubjects = new ArrayList<>();
     
     public ExamBlockViewSimple() {
         initComponents();
+        loadSubjectsFromFile("data/Subjects.xml"); // đường dẫn tới file XML của bạn
         setLocationRelativeTo(null);
     }
     
+    public void loadSubjectsFromFile(String filePath) {
+        allSubjects = XMLUtil.readSubjectNamesFromFile(filePath);
+
+        availableSubjectsModel.clear();
+        selectedSubjectsModel.clear(); // Xóa môn đã chọn khi reload
+
+        for (String subject : allSubjects) {
+        availableSubjectsModel.addElement(subject);
+        }
+    }
+
     private void initComponents() {
-        setTitle("Quản lý khối thi");
+        setTitle("QUẢN LÝ KHỐI THI");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1400, 800);
         setLayout(new BorderLayout());
         
         // Set background
         JLabel background = new JLabel();
-        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/Lovepik_com-500330964-blue-blazed-background.jpg"));
+        background.setIcon(new ImageIcon("src/main/java/com/mycompany/quanlydoituongdacbiet/view/background.jpg"));
         background.setLayout(new BorderLayout());
         
         // Main panel with transparent background
@@ -208,9 +224,10 @@ public class ExamBlockViewSimple extends JFrame {
         leftPanel.add(createLabel("Môn có sẵn:"), BorderLayout.NORTH);
         
         availableSubjectsModel = new DefaultListModel<>();
-        for (String subject : ALL_SUBJECTS) {
+        for (String subject : allSubjects) {
             availableSubjectsModel.addElement(subject);
         }
+
         listAvailableSubjects = new JList<>(availableSubjectsModel);
         listAvailableSubjects.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         JScrollPane scrollAvailable = new JScrollPane(listAvailableSubjects);
@@ -220,8 +237,8 @@ public class ExamBlockViewSimple extends JFrame {
         // Control buttons
         JPanel centerPanel = new JPanel(new GridLayout(2, 1, 5, 5));
         centerPanel.setOpaque(false);
-        btnAddSubject = createSmallButton(">");
-        btnRemoveSubject = createSmallButton("<");
+        btnAddSubject = createArrowButton(">");
+        btnRemoveSubject = createArrowButton("<");
         centerPanel.add(btnAddSubject);
         centerPanel.add(btnRemoveSubject);
         
@@ -384,6 +401,17 @@ public class ExamBlockViewSimple extends JFrame {
         return button;
     }
     
+    private JButton createArrowButton(String text) {
+        JButton button = createButton(text);
+        button.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        button.setPreferredSize(new Dimension(50, 25)); // nhỏ hơn
+        button.setFocusPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        return button;
+    }
+
+
+    
     // Getter methods for form data
     public ExamBlock getExamBlockInfo() {
         try {
@@ -445,7 +473,7 @@ public class ExamBlockViewSimple extends JFrame {
             }
             
             // Add remaining available subjects
-            for (String subject : ALL_SUBJECTS) {
+            for (String subject : allSubjects) {
                 if (!subjects.contains(subject)) {
                     availableSubjectsModel.addElement(subject);
                 }
@@ -486,7 +514,7 @@ public class ExamBlockViewSimple extends JFrame {
         // Reset subject lists
         selectedSubjectsModel.clear();
         availableSubjectsModel.clear();
-        for (String subject : ALL_SUBJECTS) {
+        for (String subject : allSubjects) {
             availableSubjectsModel.addElement(subject);
         }
     }

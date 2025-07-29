@@ -101,7 +101,7 @@ public class LoginView extends javax.swing.JFrame
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("<html>Quản lý tình hình dân cư<br> ");
+        jLabel3.setText("<html>Quản lý điểm thi đại học<br> ");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(290, 20, 420, 130);
 
@@ -316,10 +316,13 @@ public class LoginView extends javax.swing.JFrame
         JOptionPane.showMessageDialog(this, message);
     }
     public User getUser() {
-        return new User(userNameField.getText(), 
-                String.copyValueOf(passwordField.getPassword()));
-        
+    return new User(
+        userNameField.getText(), 
+        String.copyValueOf(passwordField.getPassword()), 
+        "user" // hoặc "admin", tùy bạn phân quyền thế nào
+        );
     }
+
 
     public void actionPerformed(ActionEvent e) {
     }

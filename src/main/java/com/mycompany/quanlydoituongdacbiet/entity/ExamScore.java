@@ -15,23 +15,23 @@ import java.util.Date;
 @XmlRootElement(name = "ExamScore")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ExamScore {
+
     private static int idCounter = 1;
-    
+
     private int id;                     // ID tự tăng
     private String studentCode;         // Số báo danh thí sinh
     private String subjectCode;         // Mã môn thi
     private double score;               // Điểm số (0-10)
-    private Date examDate;              // Ngày thi
-    private String examSession;         // Ca thi (Sáng/Chiều)
-    private String examRoom;            // Phòng thi
+    private Date examDate;               // Ngày thi          
     private String status;              // Trạng thái (Có mặt/Vắng mặt/Vi phạm)
     private String notes;               // Ghi chú
-
+    private String fullName;             // Họ và tên thí sinh
+    private String examBlock;
     // Score status constants
     public static final String STATUS_PRESENT = "Có mặt";
     public static final String STATUS_ABSENT = "Vắng mặt";
     public static final String STATUS_VIOLATION = "Vi phạm";
-    
+
     public static final String[] EXAM_SESSIONS = {"Sáng", "Chiều"};
     public static final String[] SCORE_STATUS = {STATUS_PRESENT, STATUS_ABSENT, STATUS_VIOLATION};
 
@@ -43,17 +43,18 @@ public class ExamScore {
         this.examDate = new Date();
     }
 
-    public ExamScore(String studentCode, String subjectCode, double score, Date examDate, 
-                     String examSession, String examRoom, String status) {
-        this();
-        this.studentCode = studentCode;
-        this.subjectCode = subjectCode;
-        this.score = score;
-        this.examDate = examDate;
-        this.examSession = examSession;
-        this.examRoom = examRoom;
-        this.status = status;
-    }
+   public ExamScore(String studentCode, String fullName, String examBlock,
+                 String subjectCode, double score, Date examDate, String status) {
+    this(); 
+    this.studentCode = studentCode;
+    this.fullName = fullName;
+    this.examBlock = examBlock;
+    this.subjectCode = subjectCode;
+    this.score = score;
+    this.examDate = examDate;
+    this.status = status;
+}
+
 
     // Getters and Setters
     public int getId() {
@@ -70,6 +71,22 @@ public class ExamScore {
 
     public void setStudentCode(String studentCode) {
         this.studentCode = studentCode;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getExamBlock() {
+        return examBlock;
+    }
+
+    public void setExamBlock(String examBlock) {
+        this.examBlock = examBlock;
     }
 
     public String getSubjectCode() {
@@ -101,22 +118,6 @@ public class ExamScore {
         this.examDate = examDate;
     }
 
-    public String getExamSession() {
-        return examSession;
-    }
-
-    public void setExamSession(String examSession) {
-        this.examSession = examSession;
-    }
-
-    public String getExamRoom() {
-        return examRoom;
-    }
-
-    public void setExamRoom(String examRoom) {
-        this.examRoom = examRoom;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -137,20 +138,20 @@ public class ExamScore {
     public String getStudentId() {
         return this.studentCode;
     }
-    
+
     public void setStudentId(String studentId) {
         this.studentCode = studentId;
     }
-    
+
     // Static methods cho dropdown options
     public static String[] getSubjectOptions() {
         return new String[]{"Toán", "Vật Lý", "Hóa Học", "Sinh Học", "Ngữ Văn", "Tiếng Anh", "Lịch Sử", "Địa Lý", "GDCD"};
     }
-    
+
     public static String[] getExamSessionOptions() {
         return EXAM_SESSIONS;
     }
-    
+
     public static String[] getStatusOptions() {
         return SCORE_STATUS;
     }
@@ -162,12 +163,19 @@ public class ExamScore {
     }
 
     public String getScoreGrade() {
-        if (score >= 9.0) return "Xuất sắc";
-        else if (score >= 8.0) return "Giỏi";
-        else if (score >= 6.5) return "Khá";
-        else if (score >= 5.0) return "Trung bình";
-        else if (score >= 3.5) return "Yếu";
-        else return "Kém";
+        if (score >= 9.0) {
+            return "Xuất sắc";
+        } else if (score >= 8.0) {
+            return "Giỏi";
+        } else if (score >= 6.5) {
+            return "Khá";
+        } else if (score >= 5.0) {
+            return "Trung bình";
+        } else if (score >= 3.5) {
+            return "Yếu";
+        } else {
+            return "Kém";
+        }
     }
 
     public boolean isPassed() {
@@ -177,23 +185,28 @@ public class ExamScore {
     @Override
     public String toString() {
         return "ExamScore{" +
-                "id=" + id +
-                ", studentCode='" + studentCode + '\'' +
-                ", subjectCode='" + subjectCode + '\'' +
-                ", score=" + score +
-                ", status='" + status + '\'' +
-                ", examDate=" + examDate +
-                '}';
-    }
+            "id=" + id +
+            ", studentCode='" + studentCode + '\'' +
+            ", fullName='" + fullName + '\'' +
+            ", examBlock='" + examBlock + '\'' +
+            ", subjectCode='" + subjectCode + '\'' +
+            ", score=" + score +
+            ", status='" + status + '\'' +
+            ", examDate=" + examDate +
+            '}';
+}
+
 
     // Validation method
-    public boolean isValid() {
-        return studentCode != null && !studentCode.trim().isEmpty() &&
-               subjectCode != null && !subjectCode.trim().isEmpty() &&
-               score >= 0 && score <= 10 &&
-               status != null && !status.trim().isEmpty() &&
-               examDate != null;
-    }
+   public boolean isValid() {
+    return studentCode != null && !studentCode.trim().isEmpty()
+            && fullName != null && !fullName.trim().isEmpty()
+            && examBlock != null && !examBlock.trim().isEmpty()
+            && subjectCode != null && !subjectCode.trim().isEmpty()
+            && score >= 0 && score <= 10
+            && status != null && !status.trim().isEmpty()
+            && examDate != null;
+}
 
     // Calculate weighted score for university admission
     public double getWeightedScore(double weight) {
@@ -208,4 +221,5 @@ public class ExamScore {
     public boolean isEqualTo(ExamScore other) {
         return Math.abs(this.score - other.score) < 0.01; // Compare with tolerance
     }
+
 }
