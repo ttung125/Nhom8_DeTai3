@@ -1,60 +1,88 @@
-# Hệ thống Quản lý Điểm thi Đại học
+# 🎓 Hệ thống Quản lý Điểm thi Đại học
 
-## Mô tả
-Hệ thống quản lý điểm thi đại học được phát triển bằng Java Swing, chuyển đổi từ hệ thống quản lý dân cư ban đầu. Hệ thống cung cấp các tính năng quản lý thông tin thí sinh, điểm thi, môn thi, khối thi cùng các chức năng tìm kiếm và thống kê chi tiết.
+## 📖 Mô tả
+Hệ thống quản lý điểm thi đại học được phát triển bằng **Java Swing** với kiến trúc **MVC Pattern**, chuyển đổi từ hệ thống quản lý dân cư ban đầu. Hệ thống cung cấp đầy đủ các tính năng quản lý thông tin thí sinh, điểm thi, môn thi, khối thi cùng các chức năng tìm kiếm nâng cao, thống kê chi tiết và báo cáo trực quan.
 
-## Tính năng chính
+### ✨ Đặc điểm nổi bật:
+- 🖥️ **Giao diện đẹp mắt**: UI hiện đại với background tùy chỉnh
+- 📊 **Biểu đồ trực quan**: Tích hợp Java Swing Custom Chart
+- 💾 **Lưu trữ XML**: Dữ liệu được lưu trữ dạng XML với JAXB
+- 🔍 **Tìm kiếm thông minh**: Hỗ trợ tìm kiếm gần đúng và theo khoảng
+- 📈 **Thống kê chi tiết**: Báo cáo toàn diện với số liệu thực tế
+- ⚡ **Hiệu suất cao**: Xử lý nhanh với Maven build system
 
-### 1. Quản lý Thí sinh
-- ✅ Thêm, sửa, xóa thông tin thí sinh
-- ✅ Mã thí sinh tự động tăng dần 
-- ✅ Chọn ngày sinh bằng Calendar picker
-- ✅ Dropdown list cho giới tính và khối thi
-- ✅ Hiển thị dữ liệu dạng bảng (JTable)
-- ✅ Validation đầy đủ và xử lý lỗi
-- ✅ Lưu trữ dữ liệu định dạng XML
+## 🚀 Tính năng chính
 
-### 2. Quản lý Điểm thi
-- ✅ Nhập điểm thi cho từng thí sinh và môn
-- ✅ Chọn ngày thi bằng Calendar
-- ✅ Dropdown cho môn thi, ca thi, trạng thái
-- ✅ Format điểm số dạng tiền tệ (1,000.00)
-- ✅ Kiểm tra trùng lặp (thí sinh + môn)
-- ✅ Hiển thị kết quả dạng bảng
+### 👥 1. Quản lý Thí sinh
+- ✅ **CRUD đầy đủ**: Thêm, sửa, xóa, xem thông tin thí sinh
+- ✅ **Mã tự động**: Số báo danh tự động tăng dần (230122, 234375...)
+- ✅ **Calendar picker**: Chọn ngày sinh trực quan bằng JDateChooser
+- ✅ **Dropdown thông minh**: Giới tính và khối thi từ danh sách có sẵn
+- ✅ **Bảng hiển thị**: JTable với sorting và selection
+- ✅ **Validation mạnh**: Kiểm tra đầy đủ email, số điện thoại, ngày sinh
+- ✅ **XML Storage**: Lưu trữ an toàn với encoding UTF-8
 
-### 3. Quản lý Môn thi
-- ✅ Thêm, sửa, xóa thông tin môn thi
-- ✅ Mã môn tự động tăng dần (MH001, MH002...)
-- ✅ Quản lý thời gian thi và điểm tối đa
-- ✅ Tìm kiếm theo tên môn và khoảng thời gian
-- ✅ Thống kê thời gian thi trung bình
-- ✅ Sắp xếp theo tên môn
+### 📊 2. Quản lý Điểm thi
+- ✅ **Nhập điểm linh hoạt**: Hỗ trợ nhiều môn thi cho mỗi thí sinh
+- ✅ **Thông tin đầy đủ**: Ngày thi, trạng thái (Có mặt/Vắng mặt/Vi phạm)
+- ✅ **Format chuyên nghiệp**: Điểm số hiển thị dạng decimal (8.50, 9.25)
+- ✅ **Kiểm tra trùng lặp**: Ngăn nhập trùng điểm cho cùng thí sinh + môn
+- ✅ **Tự động tính toán**: Thống kê đạt/không đạt, điểm trung bình
+- ✅ **Tìm kiếm nâng cao**: Theo khoảng điểm, môn thi, trạng thái
 
-### 4. Quản lý Khối thi
-- ✅ Thêm, sửa, xóa thông tin khối thi
-- ✅ Mã khối tự động tăng dần (KB001, KB002...)
-- ✅ Chọn môn thi từ danh sách có sẵn
-- ✅ Giao diện drag-and-drop chọn môn
-- ✅ Tìm kiếm theo tên khối và số lượng môn
-- ✅ Thống kê số môn trung bình
+### 📚 3. Quản lý Môn thi
+- ✅ **Thông tin chi tiết**: Mã môn, tên môn, thời gian thi, điểm tối đa
+- ✅ **Mã tự động**: MH001, MH002... với prefix "MH"
+- ✅ **Môn thi chuẩn**: Toán, Lý, Hóa, Sinh, Văn, Anh, Sử, Địa, GDCD
+- ✅ **Tìm kiếm thông minh**: Theo tên môn và khoảng thời gian
+- ✅ **Thống kê**: Thời gian thi trung bình, số môn theo khối
 
-### 5. Tìm kiếm nâng cao
-- ✅ **Tìm kiếm gần đúng theo tên**: Nhập "A" → tìm "Nguyễn Văn A", "Trần Thị A"...
-- ✅ **Tìm kiếm theo khoảng tuổi**: Từ X đến Y tuổi
-- ✅ **Tìm kiếm theo khoảng điểm**: Từ X đến Y điểm
-- ✅ Tìm theo mã thí sinh, môn thi, phòng thi
+### 🎯 4. Quản lý Khối thi
+- ✅ **Khối thi chuẩn**: A (Toán-Lý-Hóa), B (Toán-Sinh-Hóa), C (Văn-Sử-Địa)...
+- ✅ **Drag & Drop**: Giao diện chọn môn thi trực quan
+- ✅ **Validation logic**: Kiểm tra số môn hợp lệ cho từng khối
+- ✅ **Thống kê khối**: Số thí sinh theo khối, số môn trung bình
 
-### 6. Thống kê chi tiết
-- ✅ **Thí sinh**: Tổng số, nam/nữ, tuổi lớn nhất/nhỏ nhất
-- ✅ **Điểm thi**: Tổng bài thi, đạt/không đạt, điểm cao nhất/thấp nhất/trung bình
-- ✅ Hiển thị số liệu dạng dấu phẩy (1,000)
+### 🔍 5. Tìm kiếm & Lọc nâng cao
+- ✅ **Tìm kiếm gần đúng**: Nhập "An" → tìm "Nguyễn Văn An", "Lê Thành An"
+- ✅ **Tìm theo khoảng tuổi**: Từ 18 đến 20 tuổi
+- ✅ **Tìm theo khoảng điểm**: Từ 7.0 đến 9.0 điểm
+- ✅ **Tìm theo môn**: Lọc điểm theo môn thi cụ thể
+- ✅ **Tìm theo khối**: Lọc thí sinh theo khối thi
+- ✅ **Tìm theo trạng thái**: Có mặt, vắng mặt, vi phạm
 
-### 7. Tính năng bổ sung
-- ✅ Sắp xếp theo tên, mã, điểm số
-- ✅ ID tự tăng và duy nhất
-- ✅ Xử lý lỗi nhập sai, trùng dữ liệu
-- ✅ Giao diện giữ nguyên style ban đầu
-- ✅ Background: login (neon.png), views (blue-blazed-background.jpg)
+### 📈 6. Thống kê & Báo cáo
+- ✅ **Thống kê thí sinh**: 
+  - Tổng số thí sinh đăng ký
+  - Phân bố nam/nữ (%)
+  - Độ tuổi trung bình, min, max
+  - Phân bố theo khối thi
+- ✅ **Thống kê điểm thi**:
+  - Tổng số bài thi đã chấm
+  - Tỷ lệ đạt/không đạt (điểm ≥ 5.0)
+  - Điểm cao nhất, thấp nhất, trung bình
+  - Phân bố điểm theo môn
+- ✅ **Thống kê môn thi**:
+  - Thời gian thi trung bình
+  - Độ khó theo điểm trung bình
+  - Số thí sinh đăng ký theo môn
+- ✅ **Format số đẹp**: 1,000 thí sinh, 8.50 điểm
+
+### 🎨 7. Giao diện & UX
+- ✅ **Theme nhất quán**: Background xanh dương chuyên nghiệp
+- ✅ **Font tiêu chuẩn**: Times New Roman cho độ rõ nét
+- ✅ **Layout responsive**: Tự động điều chỉnh theo kích thước
+- ✅ **Icon trực quan**: Buttons với màu sắc phân biệt chức năng
+- ✅ **Thông báo rõ ràng**: Success/Error messages chi tiết
+- ✅ **Navigation dễ dàng**: Back/Forward giữa các màn hình
+
+### ⚙️ 8. Tính năng kỹ thuật
+- ✅ **Auto-increment ID**: Đảm bảo tính duy nhất
+- ✅ **Data validation**: Kiểm tra tính hợp lệ đầu vào
+- ✅ **Error handling**: Xử lý exception toàn diện
+- ✅ **XML backup**: Tự động sao lưu dữ liệu
+- ✅ **Unicode support**: Hỗ trợ tiếng Việt đầy đủ
+- ✅ **Cross-platform**: Chạy trên Windows, Linux, macOS
 
 ## Yêu cầu hệ thống
 - **Java**: 8 hoặc cao hơn
@@ -87,16 +115,13 @@ java -jar target/QuanLyDoiTuongDacBiet-1.0-SNAPSHOT.jar
 
 ## Tài khoản đăng nhập
 
-### Tài khoản mặc định:
+### Tài khoản admin:
 - **Username**: `admin`
 - **Password**: `admin`
 
-### Tài khoản bổ sung:
-- **Username**: `user`
-- **Password**: `123456`
-
-- **Username**: `teacher`
-- **Password**: `password`
+### Tài khoản thí sinh:
+- **Username**: `sv001`
+- **Password**: `123`
 
 ## Cấu trúc dự án
 
